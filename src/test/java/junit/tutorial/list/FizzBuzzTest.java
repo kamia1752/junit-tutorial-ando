@@ -13,6 +13,7 @@ public class FizzBuzzTest {
                 "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz",
                 "16"));
     }
+<<<<<<< HEAD
     
     @Test
     public void 期待値のほうが多いケース() {
@@ -21,4 +22,6 @@ public class FizzBuzzTest {
                 "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz",
                 "16"));
     }
+=======
+>>>>>>> 861bfff44ff59822c1dc76bf0d704a365076602b
 }

@@ -2,10 +2,20 @@ package junit.tutorial.framework;
 
 public class Frameworks {
 
-    public Boolean isSupport(String server, String database) {
+    public static Boolean isSupport(ApplicationServer appServer, Database db) {
         // TODO Auto-generated method stub
-        
-        return true;
+        switch(appServer){
+        case GlassFish: 
+        	return true;
+        case JBoss:
+        	if( db == Database.DB2 || db == Database.PostgreSQL) return true;
+        	return false;
+        case Tomcat:
+        	if( db == Database.MySQL) return true;
+        	return false;
+        default:
+        	return false;
+        }
     }
     
 }

@@ -24,20 +24,13 @@ public class LogAnalyzerTest {
         final IOException exception = new IOException();
         expectedException.expect(AnalyzeException.class);
         expectedException.expectMessage("");
-        //expectedException.expectCause(IsInstanceOf.<Throwable> instanceOf(IOException.class));
-        //throw new AnalyzeException(new IOException());
         expectedException.expectCause(is(exception));
-        //throw new AnalyzeException(exception);
         
-//        LogAnalyzer sut = new LogAnalyzer() {
-//            @Override
-//            public Object analyze(String file) {
-//                throw new AnalyzeException(exception);
-//            }
-//        };
-//        sut.analyze("a");
-        LogAnalyzer sut = mock(LogAnalyzer.class);
-        when(sut.analyze("a")).thenThrow(new AnalyzeException(exception));
+        LogAnalyzer sut = new LogAnalyzer();
+        LogLoader mockLoader = mock(LogLoader.class);
+        sut.logLoader = mockLoader;
+        when(mockLoader.load("a")).thenThrow(exception);
+        
         sut.analyze("a");
     }
 

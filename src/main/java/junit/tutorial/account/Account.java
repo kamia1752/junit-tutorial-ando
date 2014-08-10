@@ -5,7 +5,12 @@ public class Account {
 
     private String password;
 
-    /**
+    public Account(String name, String password) {
+		setName(name);
+		setPassword(password);
+	}
+
+	/**
      * @return the name
      */
     public String getName() {

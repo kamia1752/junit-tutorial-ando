@@ -1,15 +1,16 @@
 package junit.tutorial.account;
 
-public class Authentication implements AccountDao {
+public class Authentication{
 
-    @Override
-    public Account findOrNull(String userId) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    AccountDao dao = null;
     
     public Account authenticate(String name, String password) {
-        return null;
+    	assert dao != null;
+    	Account account = dao.findOrNull(name);
+    	if(account == null) return null;
+    	//if(account.getPassword() != password) return null;
+        //return account;
+    	return account.getPassword().equals(password) ? account : null;
     }
 
 }
